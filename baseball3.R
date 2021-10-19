@@ -1,0 +1,100 @@
+library(readxl)
+library(corrplot)
+library(psych)
+
+#mydata <- read_excel("~/NU Q4/Datasets/MoneyBall.xlsx")
+allmydata <- read_excel("~/NU Q4/Datasets/MoneyBall.xlsx")
+mydata <- subset(allmydata, select = -c(INDEX, TEAM_BATTING_HBP, TEAM_BASERUN_CS))
+mydata <- mydata[complete.cases(mydata),]
+head(mydata)
+str(mydata)
+cor(mydata)
+colSums(is.na(mydata))
+corrplot(cor(mydata[complete.cases(mydata),]))
+summary(allmydata)
+summary(mydata)
+
+summary(mydata$TARGET_WINS)
+hist(mydata$TARGET_WINS)
+boxplot(mydata$TARGET_WINS)
+
+summary(lm(TARGET_WINS~TEAM_BATTING_H, data=mydata))
+summary(mydata$TEAM_BATTING_H)
+hist(mydata$TEAM_BATTING_H)
+boxplot(mydata$TEAM_BATTING_H)
+
+summary(lm(TARGET_WINS~TEAM_BATTING_2B, data=mydata))
+summary(mydata$TEAM_BATTING_2B)
+hist(mydata$TEAM_BATTING_2B)
+boxplot(mydata$TEAM_BATTING_2B)
+
+summary(lm(TARGET_WINS~TEAM_BATTING_3B, data=mydata))
+summary(mydata$TEAM_BATTING_3B)
+hist(mydata$TEAM_BATTING_3B)
+boxplot(mydata$TEAM_BATTING_3B)
+
+summary(lm(TARGET_WINS~TEAM_BATTING_HR, data=mydata))
+summary(mydata$TEAM_BATTING_HR)
+hist(mydata$TEAM_BATTING_HR)
+boxplot(mydata$TEAM_BATTING_HR)
+
+summary(lm(TARGET_WINS~TEAM_BATTING_BB, data=mydata))
+summary(mydata$TEAM_BATTING_BB)
+hist(mydata$TEAM_BATTING_BB)
+boxplot(mydata$TEAM_BATTING_BB)
+
+#summary(lm(TARGET_WINS~TEAM_BATTING_HBP, data=mydata))
+#summary(mydata$TEAM_BATTING_HBP)
+#hist(mydata$TEAM_BATTING_HBP)
+#boxplot(mydata$TEAM_BATTING_HBP)
+
+summary(lm(TARGET_WINS~TEAM_BATTING_SO, data=mydata))
+summary(mydata$TEAM_BATTING_SO)
+hist(mydata$TEAM_BATTING_SO)
+boxplot(mydata$TEAM_BATTING_SO)
+
+summary(lm(TARGET_WINS~TEAM_BASERUN_SB, data=mydata))
+summary(mydata$TEAM_BASERUN_SB)
+hist(mydata$TEAM_BASERUN_SB)
+boxplot(mydata$TEAM_BASERUN_SB)
+
+#summary(lm(TARGET_WINS~TEAM_BASERUN_CS, data=mydata))
+#summary(mydata$TEAM_BASERUN_CS)
+#hist(mydata$TEAM_BASERUN_CS)
+#boxplot(mydata$TEAM_BASERUN_CS)
+
+summary(lm(TARGET_WINS~TEAM_FIELDING_E, data=mydata))
+summary(mydata$TEAM_FIELDING_E)
+hist(mydata$TEAM_FIELDING_E)
+boxplot(mydata$TEAM_FIELDING_E)
+
+summary(lm(TARGET_WINS~TEAM_FIELDING_DP, data=mydata))
+summary(mydata$TEAM_FIELDING_DP)
+hist(mydata$TEAM_FIELDING_DP)
+boxplot(mydata$TEAM_FIELDING_DP)
+
+summary(lm(TARGET_WINS~TEAM_PITCHING_BB, data=mydata))
+summary(mydata$TEAM_PITCHING_BB)
+hist(mydata$TEAM_PITCHING_BB)
+boxplot(mydata$TEAM_PITCHING_BB)
+
+summary(lm(TARGET_WINS~TEAM_PITCHING_H, data=mydata))
+summary(mydata$TEAM_PITCHING_H)
+hist(mydata$TEAM_PITCHING_H)
+boxplot(mydata$TEAM_PITCHING_H)
+
+summary(lm(TARGET_WINS~TEAM_PITCHING_HR, data=mydata))
+summary(mydata$TEAM_PITCHING_HR)
+hist(mydata$TEAM_PITCHING_HR)
+boxplot(mydata$TEAM_PITCHING_HR)
+
+summary(lm(TARGET_WINS~TEAM_PITCHING_SO, data=mydata))
+summary(mydata$TEAM_PITCHING_SO)
+hist(mydata$TEAM_PITCHING_SO)
+boxplot(mydata$TEAM_PITCHING_SO)
+
+#summary(lm(TARGET_WINS~TEAM_BATTING_H+TEAM_BATTING_2B+TEAM_BATTING_3B+TEAM_BATTING_HR+TEAM_BATTING_BB+TEAM_BATTING_HBP+TEAM_BATTING_SO, data=mydata))
+#summary(lm(TARGET_WINS~TEAM_BASERUN_SB+TEAM_BASERUN_CS, data=mydata))
+summary(lm(TARGET_WINS~TEAM_FIELDING_E+TEAM_FIELDING_DP, data=mydata))
+summary(lm(TARGET_WINS~TEAM_PITCHING_BB+TEAM_PITCHING_H+TEAM_PITCHING_HR+TEAM_PITCHING_SO, data=mydata))
+#summary(lm(TARGET_WINS~TEAM_BATTING_H+TEAM_BATTING_2B+TEAM_BATTING_3B+TEAM_BATTING_HR+TEAM_BATTING_BB+TEAM_BATTING_HBP+TEAM_BATTING_SO+TEAM_BASERUN_SB+TEAM_BASERUN_CS+TEAM_FIELDING_E+TEAM_FIELDING_DP+TEAM_PITCHING_BB+TEAM_PITCHING_H+TEAM_PITCHING_HR+TEAM_PITCHING_SO, data=mydata))
