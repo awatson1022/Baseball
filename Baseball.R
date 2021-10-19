@@ -43,10 +43,10 @@ summary(mydata$TEAM_BATTING_BB)
 hist(mydata$TEAM_BATTING_BB)
 boxplot(mydata$TEAM_BATTING_BB)
 
-summary(lm(TARGET_WINS~TEAM_BATTING_HBP, data=mydata))
-summary(mydata$TEAM_BATTING_HBP)
-hist(mydata$TEAM_BATTING_HBP)
-boxplot(mydata$TEAM_BATTING_HBP)
+#summary(lm(TARGET_WINS~TEAM_BATTING_HBP, data=mydata))
+#summary(mydata$TEAM_BATTING_HBP)
+#hist(mydata$TEAM_BATTING_HBP)
+#boxplot(mydata$TEAM_BATTING_HBP)
 
 summary(lm(TARGET_WINS~TEAM_BATTING_SO, data=mydata))
 summary(mydata$TEAM_BATTING_SO)
@@ -58,10 +58,10 @@ summary(mydata$TEAM_BASERUN_SB)
 hist(mydata$TEAM_BASERUN_SB)
 boxplot(mydata$TEAM_BASERUN_SB)
 
-summary(lm(TARGET_WINS~TEAM_BASERUN_CS, data=mydata))
-summary(mydata$TEAM_BASERUN_CS)
-hist(mydata$TEAM_BASERUN_CS)
-boxplot(mydata$TEAM_BASERUN_CS)
+#summary(lm(TARGET_WINS~TEAM_BASERUN_CS, data=mydata))
+#summary(mydata$TEAM_BASERUN_CS)
+#hist(mydata$TEAM_BASERUN_CS)
+#boxplot(mydata$TEAM_BASERUN_CS)
 
 summary(lm(TARGET_WINS~TEAM_FIELDING_E, data=mydata))
 summary(mydata$TEAM_FIELDING_E)
@@ -93,11 +93,11 @@ summary(mydata$TEAM_PITCHING_SO)
 hist(mydata$TEAM_PITCHING_SO)
 boxplot(mydata$TEAM_PITCHING_SO)
 
-summary(lm(TARGET_WINS~TEAM_BATTING_H+TEAM_BATTING_2B+TEAM_BATTING_3B+TEAM_BATTING_HR+TEAM_BATTING_BB+TEAM_BATTING_HBP+TEAM_BATTING_SO, data=mydata))
-summary(lm(TARGET_WINS~TEAM_BASERUN_SB+TEAM_BASERUN_CS, data=mydata))
+#summary(lm(TARGET_WINS~TEAM_BATTING_H+TEAM_BATTING_2B+TEAM_BATTING_3B+TEAM_BATTING_HR+TEAM_BATTING_BB+TEAM_BATTING_HBP+TEAM_BATTING_SO, data=mydata))
+#summary(lm(TARGET_WINS~TEAM_BASERUN_SB+TEAM_BASERUN_CS, data=mydata))
 summary(lm(TARGET_WINS~TEAM_FIELDING_E+TEAM_FIELDING_DP, data=mydata))
 summary(lm(TARGET_WINS~TEAM_PITCHING_BB+TEAM_PITCHING_H+TEAM_PITCHING_HR+TEAM_PITCHING_SO, data=mydata))
-summary(lm(TARGET_WINS~TEAM_BATTING_H+TEAM_BATTING_2B+TEAM_BATTING_3B+TEAM_BATTING_HR+TEAM_BATTING_BB+TEAM_BATTING_HBP+TEAM_BATTING_SO+TEAM_BASERUN_SB+TEAM_BASERUN_CS+TEAM_FIELDING_E+TEAM_FIELDING_DP+TEAM_PITCHING_BB+TEAM_PITCHING_H+TEAM_PITCHING_HR+TEAM_PITCHING_SO, data=mydata))
+#summary(lm(TARGET_WINS~TEAM_BATTING_H+TEAM_BATTING_2B+TEAM_BATTING_3B+TEAM_BATTING_HR+TEAM_BATTING_BB+TEAM_BATTING_HBP+TEAM_BATTING_SO+TEAM_BASERUN_SB+TEAM_BASERUN_CS+TEAM_FIELDING_E+TEAM_FIELDING_DP+TEAM_PITCHING_BB+TEAM_PITCHING_H+TEAM_PITCHING_HR+TEAM_PITCHING_SO, data=mydata))
 
 ###PCA#####
 xdata <- subset(mydata, select = -c(TARGET_WINS))
@@ -112,7 +112,7 @@ pc.2 <- returns.pca$loadings[,2];
 names(pc.1)
 
 plot(-10,10,type='p',xlim=c(-0.27,-0.12),ylim=c(-0.27,0.6),xlab='PC 1',ylab='PC 2')
-text(-pc.1,-pc.2,labels=names(pc.1),cex=0.75, col = ind_df$Color)
+#text(-pc.1,-pc.2,labels=names(pc.1),cex=0.75, col = ind_df$Color)
 
 plot(returns.pca)
 scree.values <- (returns.pca$sdev^2)/sum(returns.pca$sdev^2);
@@ -147,7 +147,7 @@ scree(mycor)
 fa.parallel(mycor, n.obs=2236, fa="both", n.iter=100, show.legend=TRUE,
             main="Scree plot with parallel analysis")
 
-fa(mycor, nfactors=13, rotate="none", fm="pa")
+#fa(mycor, nfactors=13, rotate="none", fm="pa")
 
 
 #elbow at 8
